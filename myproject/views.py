@@ -6,6 +6,20 @@ from django.shortcuts import redirect, render
 database1 = get_db()
 collection1 = database1['collection1']
 
+def some_view(request):
+    db = get_db()
+    if db is None:
+        return JsonResponse({"error": "Database connection failed."}, status=500)
+
+    try:
+        # Access a collection in the database
+        collection = db['example_collection']
+        data = collection.find_one()  # Example operation
+        return JsonResponse({"data": data})
+
+    except Exception as e:
+        print("Error during database operation:", e)
+        return JsonResponse({"error": "An error occurred while fetching data."}, status=500)
 
 def index(request):
     items = list(collection1.find())

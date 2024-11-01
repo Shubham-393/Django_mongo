@@ -13,7 +13,7 @@ def some_view(request):
 
     try:
         # Access a collection in the database
-        collection = db['example_collection']
+        collection = db['collection1']
         data = collection.find_one()  # Example operation
         return JsonResponse({"data": data})
 

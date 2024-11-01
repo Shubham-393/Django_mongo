@@ -12,7 +12,7 @@ def get_db():
     if client is None:
         try:
             # Fetch connection string from environment variables
-            connection_string = os.getenv("MONGO_URI")
+            connection_string = os.getenv("MONGODB_URI")
             if not connection_string:
                 raise ValueError("MongoDB connection string not found in environment variables.")
             

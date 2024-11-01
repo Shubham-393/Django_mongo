@@ -17,7 +17,8 @@ def get_db():
                 raise ValueError("MongoDB connection string not found in environment variables.")
             
             # Establish the MongoDB client connection
-            client = MongoClient(connection_string)
+            client = MongoClient(connection_string, serverSelectionTimeoutMS=5000, connectTimeoutMS=10000)
+
             
         except (ConnectionError, ConfigurationError, ValueError) as e:
             # Log and return an error if connection fails

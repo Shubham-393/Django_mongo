@@ -3,8 +3,8 @@ from bson.objectid import ObjectId
 from django.shortcuts import redirect, render
 
 
-database1 = get_db()
-collection1 = database1['collection1']
+# database1 = get_db()
+# collection1 = database1['collection1']
 
 def some_view(request):
     db = get_db()
